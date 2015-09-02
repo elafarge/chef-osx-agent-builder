@@ -9,11 +9,7 @@
 
 include_recipe "omnibus"
 
-if ENV['OMNIBUS_USER']
-  build_user = ENV['OMNIBUS_USER']
-else
-  build_user = ENV['USER'] || 'omnibus'
-end
+build_user = 'datadogloaner'
 
 # And finally let's clonedd-agent-omnibus and install the binstubs for it
 git 'dd-agent-omnibus' do

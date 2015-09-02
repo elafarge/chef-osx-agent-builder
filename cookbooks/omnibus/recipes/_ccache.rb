@@ -27,6 +27,8 @@ return if solaris_10?
 include_recipe 'omnibus::_bash'
 include_recipe 'omnibus::_compile'
 
+build_user = 'datadogloaner'
+
 # Set up ccache, to speed up subsequent compilations.
 remote_install 'ccache' do
   source 'https://www.samba.org/ftp/ccache/ccache-3.1.9.tar.gz'
@@ -53,6 +55,6 @@ end
 
 execute 'change_ccache_permissions' do
   cwd "/Users/#{build_user}"
-  command "chown -R #{build_user}:admin ./.ccache"
+  command "chown -R #{build_user}:admin /Users/#{build_user}/.ccache"
 end
 

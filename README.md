@@ -1,3 +1,10 @@
+Requirements
+============
+
+* Build user with sudoers rights without a password
+* Chef installed to provision the VM
+* The secret key and associated certificate to sign the PKG
+
 Deprecated
 ==========
 

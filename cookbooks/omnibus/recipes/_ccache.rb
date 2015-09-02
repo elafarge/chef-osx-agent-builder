@@ -50,3 +50,9 @@ compilers.each do |compiler|
     to '/usr/local/bin/ccache'
   end
 end
+
+execute 'change_ccache_permissions' do
+  cwd "/Users/#{build_user}"
+  command "chown -R #{build_user}:admin ./.ccache"
+end
+

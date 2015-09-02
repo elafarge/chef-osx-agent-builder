@@ -16,7 +16,7 @@
 #
 
 default['omnibus'].tap do |omnibus|
-  omnibus['build_user']         = 'omnibus'
+  omnibus['build_user']         = 'datadogloaner'
   omnibus['build_user_home']    = nil
   omnibus['ruby_version']       = '2.1.5'
   omnibus['toolchain_name']     = 'omnibus-toolchain'
@@ -30,13 +30,12 @@ default['omnibus'].tap do |omnibus|
     # an encrypted data bag item and override in your wrapper.
     omnibus['build_user_password'] = 'getonthebus'
   else
-    omnibus['build_user_group']  = 'omnibus'
+    omnibus['build_user_group']  = 'admin'
     omnibus['install_dir']       = '/opt/omnibus'
     omnibus['cache_dir']         = '/var/cache/omnibus'
     # You should store this password in an encrypted data bag item and override
     # in your wrapper. Per Chef's requirements on Unix systems, the password below is
     # hashed using the MD5-based BSD password algorithm 1. The plain text version
     # is 'getonthebus'.
-    omnibus['build_user_password'] = '$1$4/uIC5oO$Q/Ggd/DztxWAew8/MKr9j0'
   end
 end
